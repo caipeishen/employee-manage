@@ -18,8 +18,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
     @Override
-    public List<Employee> getAll() {
-        return employeeMapper.getAll();
+    public List<Employee> getAll(String username) {
+        return employeeMapper.getAll(username);
     }
 
     @Override

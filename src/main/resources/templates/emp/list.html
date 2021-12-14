@@ -51,11 +51,20 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
-            <form class="form-inline" style="float: left;">
-                <h2>员工列表</h2>
-                <p style="width: 650px;"></p>
-                <a class="btn btn-sm btn-success" th:href="@{/emp}">添加</a>
-            </form>
+            <div class="form-inline">
+                <form class="form-inline" style="float: left;">
+                    <h2>员工列表</h2>
+                </form>
+            </div>
+            <div class="form-inline">
+                    员工姓名：
+                    <div class="layui-inline">
+                        <input class="form-control-sm form-control-range w-20" name="username"  id="username" placeholder="请输入员工姓名" autocomplete="off" th:value="${username}" />
+                    </div>
+                    &nbsp;
+                    <a class="btn btn-sm btn-primary" data-type="reload" id="search" style="color: white;">搜索</a>
+                    <a class="btn btn-sm btn-success" th:href="@{/emp}" style="margin-left: 20px">添加</a>
+            </div>
 
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
@@ -101,6 +110,10 @@
 <script type="text/javascript" src="asserts/js/feather.min.js"></script>
 <script>
     feather.replace()
+    $(document).on("click", "#search", function () {
+        var username = $("#username").val();
+        location.href = "/emps?username=" + username;
+    })
 </script>
 
 <!-- Graphs -->

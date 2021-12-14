@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface EmployeeMapper {
     //查询全部的员工信息
-    List<Employee> getAll();
+    List<Employee> getAll(@Param("username") String username);
 
 
     //通过ID查询员工

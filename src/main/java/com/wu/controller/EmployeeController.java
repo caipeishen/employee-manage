@@ -9,10 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,9 +32,10 @@ public class EmployeeController {
      */
     @ApiOperation(value="1.获取员工列表")
     @RequestMapping("/emps")
-    public String list(Model model) {
-        List<Employee> employees = employeeService.getAll();
+    public String list(@RequestParam(required = false) String username,  Model model) {
+        List<Employee> employees = employeeService.getAll(username);
         model.addAttribute("emps", employees);
+        model.addAttribute("username", username);
         return "emp/list";
     }
 

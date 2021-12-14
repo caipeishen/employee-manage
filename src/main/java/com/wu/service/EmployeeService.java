@@ -8,7 +8,7 @@ import java.util.List;
  * EmployeeService
  */
 public interface EmployeeService {
-    List<Employee> getAll();
+    List<Employee> getAll(String username);
 
     //通过ID查询员工
     Employee getEmployeeById(int id);

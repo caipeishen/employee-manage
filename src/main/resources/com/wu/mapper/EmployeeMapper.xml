@@ -10,6 +10,11 @@
         select e.id, e.ename, e.email, e.gender, e.birthday, e.did, dname
         from employee e
         left join department d on d.id = e.did
+        <where>
+            <if test="username!=null and username!=''">
+                e.ename like '%${username}%'
+            </if>
+        </where>
     </select>
 
 
