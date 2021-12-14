@@ -4,6 +4,8 @@ import com.wu.pojo.Department;
 import com.wu.pojo.Employee;
 import com.wu.service.impl.DepartmentServiceImpl;
 import com.wu.service.impl.EmployeeServiceImpl;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,7 @@ import java.util.List;
 /**
  * 员工请求控制器
  */
+@Api(tags = {"员工相关API"})
 @Controller
 public class EmployeeController {
     @Autowired
@@ -30,6 +33,7 @@ public class EmployeeController {
      * @param model
      * @return
      */
+    @ApiOperation(value="1.获取员工列表")
     @RequestMapping("/emps")
     public String list(Model model) {
         List<Employee> employees = employeeService.getAll();
@@ -55,6 +59,7 @@ public class EmployeeController {
      * @param employee
      * @return
      */
+    @ApiOperation(value="2.添加员工")
     @PostMapping("/emp")
     public String add(Employee employee) {
 //        添加的操作
@@ -80,6 +85,7 @@ public class EmployeeController {
      * @param employee
      * @return
      */
+    @ApiOperation(value="3.修改员工")
     @PostMapping("/updateEmp")
     public String updataEmp(Employee employee) {
         employeeService.updateEmpById(employee);
@@ -92,6 +98,7 @@ public class EmployeeController {
      * @return
      */
     //删除员工
+    @ApiOperation(value="3.删除员工")
     @GetMapping("/deleteEmp/{id}")
     public String deleteEmp(@PathVariable("id") int id) {
         employeeService.delete(id);
