@@ -1,7 +1,8 @@
-package com.wu.service;
+package com.wu.service.impl;
 
 import com.wu.mapper.DepartmentMapper;
 import com.wu.pojo.Department;
+import com.wu.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

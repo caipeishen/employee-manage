@@ -1,7 +1,8 @@
-package com.wu.service;
+package com.wu.service.impl;
 
 import com.wu.mapper.EmployeeMapper;
 import com.wu.pojo.Employee;
+import com.wu.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

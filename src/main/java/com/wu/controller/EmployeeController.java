@@ -2,8 +2,8 @@ package com.wu.controller;
 
 import com.wu.pojo.Department;
 import com.wu.pojo.Employee;
-import com.wu.service.DepartmentServiceImpl;
-import com.wu.service.EmployeeServiceImpl;
+import com.wu.service.impl.DepartmentServiceImpl;
+import com.wu.service.impl.EmployeeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+/**
+ * 员工请求控制器
+ */
 @Controller
 public class EmployeeController {
     @Autowired

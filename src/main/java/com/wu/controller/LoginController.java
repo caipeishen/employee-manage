@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 
 /**
- * @author 29216
+ * 登录请求控制器
  */
 @Controller
 public class LoginController {
@@ -32,7 +32,7 @@ public class LoginController {
         Admin admin = this.adminService.login(username, password);
         if (admin != null) {
             session.setAttribute("loginuser", admin);
-            return "redirect:/main.html";
+            return "redirect:/emps";
         } else {
             //告诉用户你登录失败了
             model.addAttribute("msg", "用户名或者密码错误");

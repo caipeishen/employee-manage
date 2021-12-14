@@ -1,7 +1,7 @@
 package com.wu;
 
-import com.wu.service.DepartmentServiceImpl;
-import com.wu.service.EmployeeServiceImpl;
+import com.wu.service.impl.DepartmentServiceImpl;
+import com.wu.service.impl.EmployeeServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

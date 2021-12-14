@@ -1,7 +1,8 @@
-package com.wu.service;
+package com.wu.service.impl;
 
 import com.wu.mapper.AdminMapper;
 import com.wu.pojo.Admin;
+import com.wu.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
  * 登录serivce
  */
 @Service
-public class AdminServiceImpl implements AdminService{
+public class AdminServiceImpl implements AdminService {
 
     @Autowired
     private AdminMapper adminMapper;
