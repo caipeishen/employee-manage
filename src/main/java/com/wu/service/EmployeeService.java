@@ -5,9 +5,7 @@ import com.wu.pojo.Employee;
 import java.util.List;
 
 /**
- * @author: 吴磊
- * @program: springboot-03-web
- * @create: 2021-01-29 14:20
+ * EmployeeService
  */
 public interface EmployeeService {
     List<Employee> getAll();
@@ -21,5 +19,6 @@ public interface EmployeeService {
     //增加一个员工
     int save(Employee employee);
 
+    // 更新员工
     int updateEmpById(Employee employee);
 }

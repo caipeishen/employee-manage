@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import javax.sql.DataSource;
 
 @SpringBootTest
-class Springboot03WebApplicationTests {
+class WebApplicationTests {
 
     @Autowired
     private DataSource dataSource;

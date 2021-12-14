@@ -1,5 +1,8 @@
 package com.wu.controller;
 
+import com.wu.pojo.Admin;
+import com.wu.service.AdminService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -14,6 +17,8 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class LoginController {
 
+    @Autowired
+    private AdminService adminService;
 
     @RequestMapping("/user/login")
     public String login(
@@ -22,9 +27,11 @@ public class LoginController {
             Model model,
             HttpSession session
     ) {
-        //具体的业务
-        if (!StringUtils.isEmpty(username) && "123456".equals(password)) {
-            session.setAttribute("loginuser", username);
+
+        // 获取登录信息
+        Admin admin = this.adminService.login(username, password);
+        if (admin != null) {
+            session.setAttribute("loginuser", admin);
             return "redirect:/main.html";
         } else {
             //告诉用户你登录失败了
@@ -33,6 +40,11 @@ public class LoginController {
         }
     }
 
+    /**
+     * 退出登录
+     * @param session
+     * @return
+     */
     @RequestMapping("/user/loginout")
     public String loginout(HttpSession session) {
         session.removeAttribute("loginuser");

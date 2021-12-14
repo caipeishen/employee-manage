@@ -22,6 +22,11 @@ public class EmployeeController {
     @Autowired
     EmployeeServiceImpl employeeService;
 
+    /**
+     * 获取员工列表
+     * @param model
+     * @return
+     */
     @RequestMapping("/emps")
     public String list(Model model) {
         List<Employee> employees = employeeService.getAll();
@@ -29,6 +34,11 @@ public class EmployeeController {
         return "emp/list";
     }
 
+    /**
+     * 到添加员工界面
+     * @param model
+     * @return
+     */
     @GetMapping("/emp")
     public String toAdd(Model model) {
         //查出部门的所有信息
@@ -37,6 +47,11 @@ public class EmployeeController {
         return "emp/add";
     }
 
+    /**
+     * 添加员工
+     * @param employee
+     * @return
+     */
     @PostMapping("/emp")
     public String add(Employee employee) {
 //        添加的操作
@@ -57,12 +72,22 @@ public class EmployeeController {
         return "emp/update";
     }
 
+    /**
+     * 到更新员工界面
+     * @param employee
+     * @return
+     */
     @PostMapping("/updateEmp")
     public String updataEmp(Employee employee) {
         employeeService.updateEmpById(employee);
         return "redirect:/emps";
     }
 
+    /**
+     * 删除员工
+     * @param id
+     * @return
+     */
     //删除员工
     @GetMapping("/deleteEmp/{id}")
     public String deleteEmp(@PathVariable("id") int id) {
